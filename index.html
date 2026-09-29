@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Interactive bilingual Linux, Windows, developer and game-server command wiki. Search documentation and copy commands with one click.">
+  <meta name="description" content="Interactive bilingual Linux and Windows command wiki in English and German. Search guides, switch language views, and copy commands with one click.">
   <meta name="theme-color" content="#0b1020">
   <title>Command Wiki — Linux & Windows Helpful Commands</title>
   <link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body data-content-lang="all">
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  <a class="skip-link" href="#main-content" data-i18n="skip">Skip to content</a>
 
   <header class="topbar">
-    <button class="icon-button mobile-only" id="menu-button" type="button" aria-label="Open navigation" title="Open navigation">☰</button>
+    <button class="icon-button mobile-only" id="menu-button" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false" title="Open navigation">☰</button>
+
     <button class="brand" id="home-button" type="button" aria-label="Go to wiki home">
       <span class="brand-mark" aria-hidden="true">&gt;_</span>
       <span class="brand-copy">
@@ -22,12 +23,24 @@
     </button>
 
     <div class="top-actions">
-      <div class="segmented compact" role="group" aria-label="Documentation language columns">
-        <button type="button" class="lang-view active" data-lang-view="all">DE+EN</button>
-        <button type="button" class="lang-view" data-lang-view="en">EN</button>
-        <button type="button" class="lang-view" data-lang-view="de">DE</button>
+      <div class="language-picker">
+        <label for="language-view">
+          <span class="language-label">Language · Sprache</span>
+          <span class="sr-only">Documentation language view</span>
+        </label>
+        <select id="language-view" aria-describedby="language-status">
+          <option value="all">DE + EN</option>
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+        </select>
       </div>
+
       <button class="icon-button" id="theme-button" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+
+      <a class="site-button" href="https://pierreg99.github.io/Linux-Windows-Helpful-Commands-DOCS/" target="_blank" rel="noopener noreferrer" aria-label="Open live GitHub Pages site">
+        <span aria-hidden="true">↗</span><span class="button-label">Live site</span>
+      </a>
+
       <a class="github-button" href="https://github.com/Pierreg99/Linux-Windows-Helpful-Commands-DOCS" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     </div>
   </header>
@@ -35,16 +48,22 @@
   <div class="app-shell">
     <aside class="sidebar" id="sidebar" aria-label="Wiki navigation">
       <div class="search-wrap">
-        <label class="sr-only" for="search-input">Search the command wiki</label>
+        <label class="sr-only" for="search-input" data-i18n="searchLabel">Search the command wiki</label>
         <span class="search-icon" aria-hidden="true">⌕</span>
-        <input id="search-input" type="search" autocomplete="off" spellcheck="false" placeholder="Search commands…">
-        <kbd>/</kbd>
+        <input id="search-input" type="search" autocomplete="off" spellcheck="false" placeholder="Search commands…" aria-controls="search-results">
+        <kbd aria-hidden="true">/</kbd>
       </div>
-      <div id="search-results" class="search-results" hidden></div>
-      <nav id="wiki-nav"></nav>
+      <div id="search-results" class="search-results" aria-live="polite" hidden></div>
+      <nav id="wiki-nav" aria-label="Documentation topics"></nav>
+
+      <div class="sidebar-live-link">
+        <span class="live-dot" aria-hidden="true"></span>
+        <a href="https://pierreg99.github.io/Linux-Windows-Helpful-Commands-DOCS/" target="_blank" rel="noopener noreferrer">pierreg99.github.io</a>
+      </div>
+
       <div class="sidebar-footer">
         <span id="doc-count">0 guides</span>
-        <span>•</span>
+        <span aria-hidden="true">•</span>
         <span id="command-count">Indexing…</span>
       </div>
     </aside>
@@ -54,20 +73,35 @@
     <main id="main-content" tabindex="-1">
       <section id="home-view" class="home-view">
         <div class="hero">
-          <div class="eyebrow">BILINGUAL · COPYABLE · SEARCHABLE</div>
-          <h1>Commands you can actually use.</h1>
-          <p class="hero-copy">
+          <a class="hero-live-badge" href="https://pierreg99.github.io/Linux-Windows-Helpful-Commands-DOCS/" target="_blank" rel="noopener noreferrer">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span data-i18n="liveBadge">Live on GitHub Pages</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <div class="eyebrow" data-i18n="eyebrow">BILINGUAL · COPYABLE · SEARCHABLE</div>
+          <h1 data-i18n="heroTitle">Commands you can actually use.</h1>
+          <p class="hero-copy" data-i18n="heroCopy">
             Browse Windows, Linux, WSL, Java, Python, package managers, shell scripting,
             Minecraft/Spigot, Paper and FiveM documentation in one interactive wiki.
           </p>
+
           <div class="hero-actions">
-            <button class="primary-button" id="browse-button" type="button">Browse wiki</button>
-            <button class="secondary-button" id="focus-search-button" type="button">Search commands</button>
+            <button class="primary-button" id="browse-button" type="button" data-i18n="browse">Browse wiki</button>
+            <button class="secondary-button" id="focus-search-button" type="button" data-i18n="searchCommands">Search commands</button>
           </div>
+
+          <div class="feature-chips" aria-label="Wiki features">
+            <span data-i18n="chipBilingual">🇩🇪 🇬🇧 Bilingual</span>
+            <span data-i18n="chipSearch">⌕ Full-text search</span>
+            <span data-i18n="chipCopy">⧉ One-click copy</span>
+            <span data-i18n="chipResponsive">◫ Mobile ready</span>
+          </div>
+
           <div class="hero-stats">
-            <div><strong id="hero-doc-count">0</strong><span>Wiki guides</span></div>
-            <div><strong id="hero-command-count">—</strong><span>Command snippets</span></div>
-            <div><strong>DE + EN</strong><span>Bilingual docs</span></div>
+            <div><strong id="hero-doc-count">0</strong><span data-i18n="guides">Wiki guides</span></div>
+            <div><strong id="hero-command-count">—</strong><span data-i18n="snippets">Command snippets</span></div>
+            <div><strong>DE + EN</strong><span data-i18n="bilingualDocs">Bilingual docs</span></div>
           </div>
         </div>
 
@@ -75,9 +109,9 @@
           <div class="section-heading">
             <div>
               <span class="eyebrow">WIKI</span>
-              <h2 id="topics-heading">Explore by topic</h2>
+              <h2 id="topics-heading" data-i18n="explore">Explore by topic</h2>
             </div>
-            <p>Every guide is sourced from the Markdown documentation in this repository.</p>
+            <p data-i18n="sourceNote">Every guide is sourced from the Markdown documentation in this repository.</p>
           </div>
           <div id="topic-cards" class="topic-grid"></div>
         </section>
@@ -85,18 +119,19 @@
         <section class="home-section quick-start" aria-labelledby="quick-heading">
           <div class="section-heading">
             <div>
-              <span class="eyebrow">QUICK START</span>
-              <h2 id="quick-heading">Copy a command</h2>
+              <span class="eyebrow" data-i18n="quickEyebrow">QUICK START</span>
+              <h2 id="quick-heading" data-i18n="copyCommand">Copy a command</h2>
             </div>
-            <p>Click the copy button. Replace placeholders such as <code>&lt;package&gt;</code> before running commands.</p>
+            <p data-i18n="copyHint">Use the copy button, then replace placeholders such as &lt;package&gt; before running commands.</p>
           </div>
+
           <div class="quick-grid">
             <article class="quick-card">
-              <div class="quick-card-head"><span>Linux</span><small>System info</small></div>
+              <div class="quick-card-head"><span>Linux</span><small data-i18n="systemInfo">System info</small></div>
               <div class="code-shell"><pre><code>uname -a</code></pre><button class="copy-btn" type="button">Copy</button></div>
             </article>
             <article class="quick-card">
-              <div class="quick-card-head"><span>PowerShell</span><small>Networking</small></div>
+              <div class="quick-card-head"><span>PowerShell</span><small data-i18n="networking">Networking</small></div>
               <div class="code-shell"><pre><code>Get-NetIPConfiguration</code></pre><button class="copy-btn" type="button">Copy</button></div>
             </article>
             <article class="quick-card">
@@ -111,13 +146,14 @@
         <div class="article-grid">
           <article class="wiki-article">
             <div class="article-toolbar">
-              <button class="back-home" id="article-home-button" type="button">← Wiki home</button>
-              <a id="edit-link" class="edit-link" target="_blank" rel="noopener noreferrer">Edit on GitHub ↗</a>
+              <button class="back-home" id="article-home-button" type="button" data-i18n="wikiHome">← Wiki home</button>
+              <a id="edit-link" class="edit-link" target="_blank" rel="noopener noreferrer" data-i18n="editGithub">Edit on GitHub ↗</a>
             </div>
             <div id="article-content" class="markdown-body" aria-live="polite"></div>
           </article>
+
           <aside class="toc-panel" aria-label="On this page">
-            <div class="toc-title">On this page</div>
+            <div class="toc-title" data-i18n="onPage">On this page</div>
             <nav id="page-toc"></nav>
           </aside>
         </div>
@@ -125,6 +161,7 @@
     </main>
   </div>
 
+  <p class="sr-only" id="language-status" aria-live="polite"></p>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="./assets/app.js" defer></script>
