@@ -1,6 +1,9 @@
 (() => {
   "use strict";
 
+  const icon = window.WikiIcons;
+  const hydrateIcons = () => document.querySelectorAll("[data-icon]").forEach(el => { el.innerHTML = icon(el.dataset.icon); });
+
   const REPO = "Pierreg99/Linux-Windows-Helpful-Commands-DOCS";
   const REPO_URL = `https://github.com/${REPO}`;
 
@@ -12,103 +15,103 @@
 
   const DOCS = [
     {
-      slug: "windows", path: "docs/windows.md", category: "systems", icon: "⊞",
+      slug: "windows", path: "docs/windows.md", category: "systems",
       title: "Windows CMD & PowerShell", description: "CMD, PowerShell, networking, services and maintenance.",
       descriptionDe: "CMD, PowerShell, Netzwerk, Dienste und Wartung.",
       keywords: "windows cmd powershell winget network ipconfig service"
     },
     {
-      slug: "wsl", path: "docs/wsl.md", category: "systems", icon: "◫",
+      slug: "wsl", path: "docs/wsl.md", category: "systems",
       title: "WSL", description: "Windows Subsystem for Linux, distros, files and networking.",
       descriptionDe: "Windows-Subsystem für Linux, Distributionen, Dateien und Netzwerk.",
       keywords: "wsl windows subsystem linux distro ubuntu integration"
     },
     {
-      slug: "common-linux", path: "docs/common-linux.md", category: "systems", icon: "⌘",
+      slug: "common-linux", path: "docs/common-linux.md", category: "systems",
       title: "Common Linux", description: "Files, processes, networking, permissions and systemd.",
       descriptionDe: "Dateien, Prozesse, Netzwerk, Berechtigungen und systemd.",
       keywords: "linux bash files grep find chmod systemctl journalctl"
     },
     {
-      slug: "ubuntu-debian", path: "docs/ubuntu-debian.md", category: "systems", icon: "◉",
+      slug: "ubuntu-debian", path: "docs/ubuntu-debian.md", category: "systems",
       title: "Ubuntu & Debian", description: "APT, dpkg, services and system maintenance.",
       descriptionDe: "APT, dpkg, Dienste und Systempflege.",
       keywords: "ubuntu debian apt dpkg packages systemctl"
     },
     {
-      slug: "linux-mint", path: "docs/linux-mint.md", category: "systems", icon: "LM",
+      slug: "linux-mint", path: "docs/linux-mint.md", category: "systems",
       title: "Linux Mint", description: "APT-based administration and Mint helpers.",
       descriptionDe: "APT-basierte Administration und Mint-Helfer.",
       keywords: "linux mint apt mintupdate timeshift"
     },
     {
-      slug: "fedora-rhel", path: "docs/fedora-rhel.md", category: "systems", icon: "F",
+      slug: "fedora-rhel", path: "docs/fedora-rhel.md", category: "systems",
       title: "Fedora & RHEL", description: "DNF, RPM, SELinux, firewalld and services.",
       descriptionDe: "DNF, RPM, SELinux, firewalld und Dienste.",
       keywords: "fedora rhel redhat dnf rpm selinux firewall-cmd"
     },
     {
-      slug: "arch-manjaro", path: "docs/arch-manjaro.md", category: "systems", icon: "A",
+      slug: "arch-manjaro", path: "docs/arch-manjaro.md", category: "systems",
       title: "Arch & Manjaro", description: "pacman, package queries, cache and system updates.",
       descriptionDe: "pacman, Paketabfragen, Cache und Systemupdates.",
       keywords: "arch manjaro pacman paccache packages"
     },
     {
-      slug: "opensuse", path: "docs/opensuse.md", category: "systems", icon: "S",
+      slug: "opensuse", path: "docs/opensuse.md", category: "systems",
       title: "openSUSE", description: "zypper, repositories, services and snapshots.",
       descriptionDe: "zypper, Repositories, Dienste und Snapshots.",
       keywords: "opensuse suse zypper snapper repositories"
     },
     {
-      slug: "alpine", path: "docs/alpine.md", category: "systems", icon: "▲",
+      slug: "alpine", path: "docs/alpine.md", category: "systems",
       title: "Alpine Linux", description: "apk, OpenRC and lightweight administration.",
       descriptionDe: "apk, OpenRC und schlanke Administration.",
       keywords: "alpine apk openrc rc-service rc-update"
     },
     {
-      slug: "kali", path: "docs/kali.md", category: "systems", icon: "K",
+      slug: "kali", path: "docs/kali.md", category: "systems",
       title: "Kali Linux", description: "Kali commands and common security-tool workflows.",
       descriptionDe: "Kali-Befehle und typische Security-Tool-Workflows.",
       keywords: "kali linux nmap sqlmap john hashcat aircrack security"
     },
     {
-      slug: "java-jar", path: "docs/java-jar.md", category: "dev", icon: "J",
+      slug: "java-jar", path: "docs/java-jar.md", category: "dev",
       title: "Java & JAR", description: "Runtime, compiler, classpath, JAR and JVM inspection.",
       descriptionDe: "Runtime, Compiler, Classpath, JAR und JVM-Analyse.",
       keywords: "java javac jar jvm classpath jdeps jstack"
     },
     {
-      slug: "python-pip", path: "docs/python-pip.md", category: "dev", icon: "Py",
+      slug: "python-pip", path: "docs/python-pip.md", category: "dev",
       title: "Python & pip", description: "Python execution, virtual environments and packages.",
       descriptionDe: "Python-Ausführung, virtuelle Umgebungen und Pakete.",
       keywords: "python pip venv requirements py packages"
     },
     {
-      slug: "package-managers", path: "docs/package-managers.md", category: "dev", icon: "PK",
+      slug: "package-managers", path: "docs/package-managers.md", category: "dev",
       title: "Package Managers", description: "apt, dnf, pacman, zypper, apk, pkg and winget.",
       descriptionDe: "apt, dnf, pacman, zypper, apk, pkg und winget.",
       keywords: "apt dnf pacman zypper apk pkg termux winget package manager"
     },
     {
-      slug: "scripts-sh-cmd", path: "docs/scripts-sh-cmd.md", category: "dev", icon: "#!",
+      slug: "scripts-sh-cmd", path: "docs/scripts-sh-cmd.md", category: "dev",
       title: "SH, Bash, CMD & BAT", description: "Shell scripts, batch files, variables and control flow.",
       descriptionDe: "Shell-Skripte, Batch-Dateien, Variablen und Kontrollfluss.",
       keywords: "bash sh shell cmd bat batch script chmod source"
     },
     {
-      slug: "minecraft-spigot", path: "docs/minecraft-spigot.md", category: "servers", icon: "⛏",
+      slug: "minecraft-spigot", path: "docs/minecraft-spigot.md", category: "servers",
       title: "Minecraft & Spigot", description: "Server startup, BuildTools, plugins and Maven examples.",
       descriptionDe: "Serverstart, BuildTools, Plugins und Maven-Beispiele.",
       keywords: "minecraft spigot buildtools plugin plugin.yml maven server"
     },
     {
-      slug: "paper-paperspigot", path: "docs/paper-paperspigot.md", category: "servers", icon: "P",
+      slug: "paper-paperspigot", path: "docs/paper-paperspigot.md", category: "servers",
       title: "Paper / PaperSpigot", description: "Paper server, plugins, Gradle, Maven and configuration.",
       descriptionDe: "Paper-Server, Plugins, Gradle, Maven und Konfiguration.",
       keywords: "paper paperspigot papermc minecraft plugin gradle maven"
     },
     {
-      slug: "fivem", path: "docs/fivem.md", category: "servers", icon: "V",
+      slug: "fivem", path: "docs/fivem.md", category: "servers",
       title: "FiveM / FXServer", description: "txAdmin, server.cfg, resources, Lua and JavaScript.",
       descriptionDe: "txAdmin, server.cfg, Ressourcen, Lua und JavaScript.",
       keywords: "fivem fxserver txadmin server.cfg fxmanifest lua javascript resource"
@@ -142,9 +145,14 @@
 
   let toastTimer = null;
   let currentLanguage = "all";
+  let currentCategory = "all";
 
   const LANGUAGE_UI = {
     en: {
+      filterAll: "All guides",
+      filterSystems: "Operating systems",
+      filterDev: "Development",
+      filterServers: "Game servers",
       skip: "Skip to content",
       liveBadge: "Live on GitHub Pages",
       eyebrow: "BILINGUAL · COPYABLE · SEARCHABLE",
@@ -152,10 +160,10 @@
       heroCopy: "Browse Windows, Linux, WSL, Java, Python, package managers, shell scripting, Minecraft/Spigot, Paper and FiveM documentation in one interactive wiki.",
       browse: "Browse wiki",
       searchCommands: "Search commands",
-      chipBilingual: "🇩🇪 🇬🇧 Bilingual",
-      chipSearch: "⌕ Full-text search",
-      chipCopy: "⧉ One-click copy",
-      chipResponsive: "◫ Mobile ready",
+      chipBilingual: "Bilingual",
+      chipSearch: " Full-text search",
+      chipCopy: " One-click copy",
+      chipResponsive: " Mobile ready",
       guides: "Wiki guides",
       snippets: "Command snippets",
       bilingualDocs: "Bilingual docs",
@@ -166,11 +174,15 @@
       copyHint: "Use the copy button, then replace placeholders before running commands.",
       systemInfo: "System info",
       networking: "Networking",
-      wikiHome: "← Wiki home",
-      editGithub: "Edit on GitHub ↗",
+      wikiHome: " Wiki home",
+      editGithub: "Edit on GitHub ",
       onPage: "On this page"
     },
     de: {
+      filterAll: "Alle Guides",
+      filterSystems: "Betriebssysteme",
+      filterDev: "Entwicklung",
+      filterServers: "Gameserver",
       skip: "Zum Inhalt springen",
       liveBadge: "Live auf GitHub Pages",
       eyebrow: "ZWEISPRACHIG · KOPIERBAR · DURCHSUCHBAR",
@@ -178,10 +190,10 @@
       heroCopy: "Durchsuche Windows-, Linux-, WSL-, Java-, Python-, Paketmanager-, Shell-, Minecraft/Spigot-, Paper- und FiveM-Dokumentation in einem interaktiven Wiki.",
       browse: "Wiki öffnen",
       searchCommands: "Befehle suchen",
-      chipBilingual: "🇩🇪 🇬🇧 Zweisprachig",
-      chipSearch: "⌕ Volltextsuche",
-      chipCopy: "⧉ Mit einem Klick kopieren",
-      chipResponsive: "◫ Für Mobilgeräte",
+      chipBilingual: "  Zweisprachig",
+      chipSearch: " Volltextsuche",
+      chipCopy: " Mit einem Klick kopieren",
+      chipResponsive: " Für Mobilgeräte",
       guides: "Wiki-Guides",
       snippets: "Befehlsbeispiele",
       bilingualDocs: "Zweisprachige Docs",
@@ -192,11 +204,15 @@
       copyHint: "Nutze den Kopierbutton und ersetze Platzhalter, bevor du Befehle ausführst.",
       systemInfo: "Systeminfo",
       networking: "Netzwerk",
-      wikiHome: "← Wiki-Start",
-      editGithub: "Auf GitHub bearbeiten ↗",
+      wikiHome: " Wiki-Start",
+      editGithub: "Auf GitHub bearbeiten ",
       onPage: "Auf dieser Seite"
     },
     all: {
+      filterAll: "All · Alle",
+      filterSystems: "Systems · Systeme",
+      filterDev: "Development · Entwicklung",
+      filterServers: "Game servers · Gameserver",
       skip: "Skip to content / Zum Inhalt",
       liveBadge: "Live on GitHub Pages · Live auf GitHub Pages",
       eyebrow: "BILINGUAL · ZWEISPRACHIG · SEARCHABLE",
@@ -204,10 +220,10 @@
       heroCopy: "Practical Windows, Linux, developer and server commands with English and German explanations in one interactive wiki.",
       browse: "Browse wiki · Wiki öffnen",
       searchCommands: "Search · Suchen",
-      chipBilingual: "🇩🇪 🇬🇧 Deutsch + English",
-      chipSearch: "⌕ Full-text · Volltext",
-      chipCopy: "⧉ Copy · Kopieren",
-      chipResponsive: "◫ Mobile ready",
+      chipBilingual: "Deutsch + English",
+      chipSearch: " Full-text · Volltext",
+      chipCopy: " Copy · Kopieren",
+      chipResponsive: " Mobile ready",
       guides: "Wiki guides · Guides",
       snippets: "Command snippets · Beispiele",
       bilingualDocs: "Deutsch + English",
@@ -218,8 +234,8 @@
       copyHint: "Use the copy button and replace placeholders before running commands · Kopieren und Platzhalter vor dem Ausführen ersetzen.",
       systemInfo: "System info · Systeminfo",
       networking: "Networking · Netzwerk",
-      wikiHome: "← Wiki home · Start",
-      editGithub: "Edit on GitHub · Bearbeiten ↗",
+      wikiHome: " Wiki home · Start",
+      editGithub: "Edit on GitHub · Bearbeiten ",
       onPage: "On this page · Inhalt"
     }
   };
@@ -257,6 +273,7 @@
     });
 
     value = escapeHtml(value);
+    value = value.replace(/⚠️?/g, `<span class="warning-symbol" role="img" aria-label="${currentLanguage === "de" ? "Warnung" : "Warning"}">${icon("warning")}</span>`);
     value = value.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
     value = value.replace(/(^|[^*])\*([^*]+)\*/g, "$1<em>$2</em>");
 
@@ -463,10 +480,10 @@
       const docs = DOCS.filter(doc => doc.category === category.id);
       return `
         <section class="nav-group">
-          <div class="nav-label">${escapeHtml(category.label)} · ${escapeHtml(category.labelDe)}</div>
+          <div class="nav-label">${escapeHtml(currentLanguage === "de" ? category.labelDe : category.label)}</div>
           ${docs.map(doc => `
             <button class="nav-link" type="button" data-doc="${doc.slug}">
-              <span class="nav-icon">${escapeHtml(doc.icon)}</span>
+              <span class="nav-icon">${icon(doc.slug)}</span>
               <span>${escapeHtml(doc.title)}</span>
             </button>
           `).join("")}
@@ -476,14 +493,14 @@
   }
 
   function buildTopicCards() {
-    els.topicCards.innerHTML = DOCS.map(doc => `
-      <button class="topic-card" type="button" data-doc="${doc.slug}">
+    els.topicCards.innerHTML = DOCS.filter(doc => currentCategory === "all" || doc.category === currentCategory).map(doc => `
+      <button class="topic-card" type="button" data-doc="${doc.slug}" data-tone="${doc.category}">
         <span class="topic-card-head">
-          <span class="topic-icon">${escapeHtml(doc.icon)}</span>
+          <span class="topic-icon">${icon(doc.slug)}</span>
           <strong>${escapeHtml(doc.title)}</strong>
         </span>
-        <p>${escapeHtml(doc.description)}<br>${escapeHtml(doc.descriptionDe)}</p>
-        <small>Open guide →</small>
+        <p>${currentLanguage === "de" ? escapeHtml(doc.descriptionDe) : escapeHtml(doc.description)}${currentLanguage === "all" ? `<span class="translation">${escapeHtml(doc.descriptionDe)}</span>` : ""}</p>
+        <small>${currentLanguage === "de" ? "Guide öffnen" : "Open guide"} ${icon("arrow")}</small>
       </button>
     `).join("");
   }
@@ -491,12 +508,16 @@
   function setActiveNav(slug) {
     document.querySelectorAll(".nav-link").forEach(button => {
       button.classList.toggle("active", button.dataset.doc === slug);
+      if (button.dataset.doc === slug) button.setAttribute("aria-current", "page");
+      else button.removeAttribute("aria-current");
     });
   }
 
   function closeSidebar() {
     document.body.classList.remove("sidebar-open");
     els.overlay.hidden = true;
+    els.menuButton.setAttribute("aria-expanded", "false");
+    els.menuButton.setAttribute("aria-label", "Open navigation");
   }
 
   function openDoc(slug) {
@@ -561,12 +582,13 @@
       const markdown = await getDoc(doc);
       els.articleContent.innerHTML = renderMarkdown(markdown);
       buildToc();
+      refreshCopyButtons();
     } catch (error) {
       els.articleContent.innerHTML = `
         <div class="article-error">
           <h2>Could not load this wiki page</h2>
           <p>The Markdown file could not be fetched. Open the repository version instead.</p>
-          <p><a href="${REPO_URL}/blob/main/${doc.path}" target="_blank" rel="noopener noreferrer">Open ${escapeHtml(doc.path)} on GitHub ↗</a></p>
+          <p><a href="${REPO_URL}/blob/main/${doc.path}" target="_blank" rel="noopener noreferrer">Open ${escapeHtml(doc.path)} on GitHub </a></p>
         </div>
       `;
     }
@@ -610,11 +632,10 @@
       }
 
       if (button && button.classList.contains("copy-btn")) {
-        const original = button.textContent;
-        button.textContent = "Copied!";
+        button.innerHTML = icon("check") + `<span>${currentLanguage === "de" ? "Kopiert" : "Copied"}</span>`;
         button.classList.add("copied");
         setTimeout(() => {
-          button.textContent = original;
+          refreshCopyButtons();
           button.classList.remove("copied");
         }, 1200);
       }
@@ -681,11 +702,11 @@
   }
 
   function applyTheme(theme) {
+    if (!["auto", "light", "dark"].includes(theme)) theme = "auto";
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("command-wiki-theme", theme);
     const labels = { auto: "Auto theme", light: "Light theme", dark: "Dark theme" };
-    const icons = { auto: "◐", light: "☀", dark: "☾" };
-    els.themeButton.textContent = icons[theme];
+    els.themeButton.innerHTML = icon(theme);
     els.themeButton.title = `${labels[theme]} — click to change`;
     els.themeButton.setAttribute("aria-label", els.themeButton.title);
   }
@@ -694,6 +715,24 @@
     const current = document.documentElement.dataset.theme || "auto";
     const next = current === "auto" ? "light" : current === "light" ? "dark" : "auto";
     applyTheme(next);
+  }
+
+  function refreshCopyButtons() {
+    document.querySelectorAll(".copy-btn").forEach(button => {
+      const label = currentLanguage === "de" ? "Kopieren" : "Copy";
+      button.innerHTML = icon("copy") + `<span>${label}</span>`;
+      button.setAttribute("aria-label", label);
+    });
+  }
+
+  function focusSearch() {
+    if (window.matchMedia("(max-width: 900px)").matches) {
+      document.body.classList.add("sidebar-open");
+      els.overlay.hidden = false;
+      els.menuButton.setAttribute("aria-expanded", "true");
+      els.menuButton.setAttribute("aria-label", "Close navigation");
+    }
+    els.search.focus();
   }
 
   function applyContentLanguage(lang, announce = true) {
@@ -720,10 +759,11 @@
       els.sidebar.setAttribute("aria-label", next === "de" ? "Wiki-Navigation" : "Wiki navigation");
     }
 
-    document.querySelectorAll(".copy-btn").forEach(button => {
-      button.textContent = next === "de" ? "Kopieren" : next === "en" ? "Copy" : "Copy · Kopieren";
-      button.setAttribute("aria-label", button.textContent);
-    });
+    refreshCopyButtons();
+    buildNavigation();
+    buildTopicCards();
+    setActiveNav(location.hash.slice(1));
+
 
     if (announce && els.languageStatus) {
       els.languageStatus.textContent =
@@ -734,6 +774,17 @@
   }
 
   document.addEventListener("click", event => {
+    const filter = event.target.closest("[data-category]");
+    if (filter) {
+      currentCategory = filter.dataset.category;
+      document.querySelectorAll("[data-category]").forEach(button => {
+        const active = button === filter;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+      buildTopicCards();
+      return;
+    }
     const docTarget = event.target.closest("[data-doc]");
     if (docTarget) {
       openDoc(docTarget.dataset.doc);
@@ -763,7 +814,7 @@
   document.addEventListener("keydown", event => {
     if (event.key === "/" && !["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName)) {
       event.preventDefault();
-      els.search.focus();
+      focusSearch();
     }
 
     if (event.key === "Escape") {
@@ -795,13 +846,7 @@
   document.getElementById("home-button").addEventListener("click", goHome);
   document.getElementById("article-home-button").addEventListener("click", goHome);
   document.getElementById("browse-button").addEventListener("click", () => openDoc(DOCS[0].slug));
-  document.getElementById("focus-search-button").addEventListener("click", () => {
-    if (window.matchMedia("(max-width: 820px)").matches) {
-      document.body.classList.add("sidebar-open");
-      els.overlay.hidden = false;
-    }
-    setTimeout(() => els.search.focus(), 50);
-  });
+  document.getElementById("focus-search-button").addEventListener("click", focusSearch);
 
   els.themeButton.addEventListener("click", cycleTheme);
   if (els.languageView) {
@@ -810,8 +855,7 @@
 
   window.addEventListener("hashchange", loadRoute);
 
-  buildNavigation();
-  buildTopicCards();
+  hydrateIcons();
 
   els.docCount.textContent = `${DOCS.length} guides`;
   els.heroDocCount.textContent = DOCS.length.toString();
@@ -822,6 +866,6 @@
 
   buildSearchIndex().catch(() => {
     els.commandCount.textContent = "Search ready";
-    els.heroCommandCount.textContent = "✓";
+    els.heroCommandCount.textContent = "—";
   });
 })();

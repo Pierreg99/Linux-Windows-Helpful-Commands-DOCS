@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Interactive bilingual Linux and Windows command wiki in English and German. Search guides, switch language views, and copy commands with one click.">
-  <meta name="theme-color" content="#0b1020">
+  <meta name="theme-color" content="#edf3f8">
   <title>Command Wiki — Linux & Windows Helpful Commands</title>
   <link rel="stylesheet" href="./assets/styles.css">
 </head>
@@ -12,10 +12,10 @@
   <a class="skip-link" href="#main-content" data-i18n="skip">Skip to content</a>
 
   <header class="topbar">
-    <button class="icon-button mobile-only" id="menu-button" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false" title="Open navigation">☰</button>
+    <button class="icon-button mobile-only" id="menu-button" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false" title="Open navigation"><span data-icon="menu"></span></button>
 
     <button class="brand" id="home-button" type="button" aria-label="Go to wiki home">
-      <span class="brand-mark" aria-hidden="true">&gt;_</span>
+      <span class="brand-mark" aria-hidden="true" data-icon="terminal"></span>
       <span class="brand-copy">
         <strong>Command Wiki</strong>
         <small>Linux · Windows · Dev · Servers</small>
@@ -35,13 +35,13 @@
         </select>
       </div>
 
-      <button class="icon-button" id="theme-button" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+      <button class="icon-button" id="theme-button" type="button" aria-label="Toggle theme" title="Toggle theme"><span data-icon="auto"></span></button>
 
       <a class="site-button" href="https://pierreg99.github.io/Linux-Windows-Helpful-Commands-DOCS/" target="_blank" rel="noopener noreferrer" aria-label="Open live GitHub Pages site">
-        <span aria-hidden="true">↗</span><span class="button-label">Live site</span>
+        <span data-icon="external"></span><span class="button-label">Live site</span>
       </a>
 
-      <a class="github-button" href="https://github.com/Pierreg99/Linux-Windows-Helpful-Commands-DOCS" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a class="github-button" href="https://github.com/Pierreg99/Linux-Windows-Helpful-Commands-DOCS" target="_blank" rel="noopener noreferrer"><span data-icon="github"></span><span>GitHub</span></a>
     </div>
   </header>
 
@@ -49,7 +49,7 @@
     <aside class="sidebar" id="sidebar" aria-label="Wiki navigation">
       <div class="search-wrap">
         <label class="sr-only" for="search-input" data-i18n="searchLabel">Search the command wiki</label>
-        <span class="search-icon" aria-hidden="true">⌕</span>
+        <span class="search-icon" data-icon="search"></span>
         <input id="search-input" type="search" autocomplete="off" spellcheck="false" placeholder="Search commands…" aria-controls="search-results">
         <kbd aria-hidden="true">/</kbd>
       </div>
@@ -73,10 +73,11 @@
     <main id="main-content" tabindex="-1">
       <section id="home-view" class="home-view">
         <div class="hero">
+          <div class="hero-main">
           <a class="hero-live-badge" href="https://pierreg99.github.io/Linux-Windows-Helpful-Commands-DOCS/" target="_blank" rel="noopener noreferrer">
             <span class="live-dot" aria-hidden="true"></span>
             <span data-i18n="liveBadge">Live on GitHub Pages</span>
-            <span aria-hidden="true">↗</span>
+            <span data-icon="external"></span>
           </a>
 
           <div class="eyebrow" data-i18n="eyebrow">BILINGUAL · COPYABLE · SEARCHABLE</div>
@@ -87,17 +88,29 @@
           </p>
 
           <div class="hero-actions">
-            <button class="primary-button" id="browse-button" type="button" data-i18n="browse">Browse wiki</button>
-            <button class="secondary-button" id="focus-search-button" type="button" data-i18n="searchCommands">Search commands</button>
+            <button class="primary-button" id="browse-button" type="button"><span data-icon="arrow"></span><span data-i18n="browse">Browse wiki</span></button>
+            <button class="secondary-button" id="focus-search-button" type="button"><span data-icon="search"></span><span data-i18n="searchCommands">Search commands</span></button>
           </div>
 
           <div class="feature-chips" aria-label="Wiki features">
-            <span data-i18n="chipBilingual">🇩🇪 🇬🇧 Bilingual</span>
-            <span data-i18n="chipSearch">⌕ Full-text search</span>
-            <span data-i18n="chipCopy">⧉ One-click copy</span>
-            <span data-i18n="chipResponsive">◫ Mobile ready</span>
+            <span><span data-icon="language"></span><span data-i18n="chipBilingual">Bilingual</span></span>
+            <span><span data-icon="search"></span><span data-i18n="chipSearch">Full-text search</span></span>
+            <span><span data-icon="copy"></span><span data-i18n="chipCopy">One-click copy</span></span>
+            <span><span data-icon="mobile"></span><span data-i18n="chipResponsive">Mobile ready</span></span>
           </div>
 
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="orb orb-blue"></div><div class="orb orb-mint"></div>
+            <div class="floating-symbol symbol-linux" data-icon="common-linux"></div>
+            <div class="floating-symbol symbol-windows" data-icon="windows"></div>
+            <div class="terminal-preview">
+              <div class="terminal-title"><span data-icon="terminal"></span><span>command / workspace</span><span class="terminal-status"></span></div>
+              <div class="terminal-body"><div class="terminal-comment"># A little clarity. A lot of control.</div><div><span class="prompt">~</span> whoami</div><div class="terminal-output">the one in control.</div><div><span class="prompt">~</span> uname -s</div><div class="terminal-output">Linux</div><div><span class="prompt">~</span> <span class="terminal-caret"></span></div></div>
+              <div class="terminal-bottom"><span data-icon="check"></span> Linux / Windows / You</div>
+            </div>
+            <div class="glass-caption"><span data-icon="copy"></span><span>Find. Copy. Build.</span></div>
+          </div>
           <div class="hero-stats">
             <div><strong id="hero-doc-count">0</strong><span data-i18n="guides">Wiki guides</span></div>
             <div><strong id="hero-command-count">—</strong><span data-i18n="snippets">Command snippets</span></div>
@@ -113,6 +126,12 @@
             </div>
             <p data-i18n="sourceNote">Every guide is sourced from the Markdown documentation in this repository.</p>
           </div>
+          <div class="topic-filters" role="group" aria-label="Filter topics">
+            <button type="button" class="filter-chip active" data-category="all" aria-pressed="true" data-i18n="filterAll">All guides</button>
+            <button type="button" class="filter-chip" data-category="systems" aria-pressed="false" data-i18n="filterSystems">Operating systems</button>
+            <button type="button" class="filter-chip" data-category="dev" aria-pressed="false" data-i18n="filterDev">Development</button>
+            <button type="button" class="filter-chip" data-category="servers" aria-pressed="false" data-i18n="filterServers">Game servers</button>
+          </div>
           <div id="topic-cards" class="topic-grid"></div>
         </section>
 
@@ -127,15 +146,15 @@
 
           <div class="quick-grid">
             <article class="quick-card">
-              <div class="quick-card-head"><span>Linux</span><small data-i18n="systemInfo">System info</small></div>
+              <div class="quick-card-head"><span><span data-icon="common-linux"></span>Linux</span><small data-i18n="systemInfo">System info</small></div>
               <div class="code-shell"><pre><code>uname -a</code></pre><button class="copy-btn" type="button">Copy</button></div>
             </article>
             <article class="quick-card">
-              <div class="quick-card-head"><span>PowerShell</span><small data-i18n="networking">Networking</small></div>
+              <div class="quick-card-head"><span><span data-icon="windows"></span>PowerShell</span><small data-i18n="networking">Networking</small></div>
               <div class="code-shell"><pre><code>Get-NetIPConfiguration</code></pre><button class="copy-btn" type="button">Copy</button></div>
             </article>
             <article class="quick-card">
-              <div class="quick-card-head"><span>Python</span><small>pip</small></div>
+              <div class="quick-card-head"><span><span data-icon="python-pip"></span>Python</span><small>pip</small></div>
               <div class="code-shell"><pre><code>python -m pip --version</code></pre><button class="copy-btn" type="button">Copy</button></div>
             </article>
           </div>
@@ -146,8 +165,8 @@
         <div class="article-grid">
           <article class="wiki-article">
             <div class="article-toolbar">
-              <button class="back-home" id="article-home-button" type="button" data-i18n="wikiHome">← Wiki home</button>
-              <a id="edit-link" class="edit-link" target="_blank" rel="noopener noreferrer" data-i18n="editGithub">Edit on GitHub ↗</a>
+              <button class="back-home" id="article-home-button" type="button"><span data-icon="back"></span><span data-i18n="wikiHome">Wiki home</span></button>
+              <a id="edit-link" class="edit-link" target="_blank" rel="noopener noreferrer"><span data-icon="external"></span><span data-i18n="editGithub">Edit on GitHub</span></a>
             </div>
             <div id="article-content" class="markdown-body" aria-live="polite"></div>
           </article>
@@ -164,6 +183,7 @@
   <p class="sr-only" id="language-status" aria-live="polite"></p>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <script src="./assets/icons.js" defer></script>
   <script src="./assets/app.js" defer></script>
 </body>
 </html>
