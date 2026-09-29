@@ -134,10 +134,95 @@
     heroDocCount: document.getElementById("hero-doc-count"),
     heroCommandCount: document.getElementById("hero-command-count"),
     toast: document.getElementById("toast"),
-    themeButton: document.getElementById("theme-button")
+    themeButton: document.getElementById("theme-button"),
+    languageView: document.getElementById("language-view"),
+    languageStatus: document.getElementById("language-status"),
+    menuButton: document.getElementById("menu-button")
   };
 
   let toastTimer = null;
+  let currentLanguage = "all";
+
+  const LANGUAGE_UI = {
+    en: {
+      skip: "Skip to content",
+      liveBadge: "Live on GitHub Pages",
+      eyebrow: "BILINGUAL · COPYABLE · SEARCHABLE",
+      heroTitle: "Commands you can actually use.",
+      heroCopy: "Browse Windows, Linux, WSL, Java, Python, package managers, shell scripting, Minecraft/Spigot, Paper and FiveM documentation in one interactive wiki.",
+      browse: "Browse wiki",
+      searchCommands: "Search commands",
+      chipBilingual: "🇩🇪 🇬🇧 Bilingual",
+      chipSearch: "⌕ Full-text search",
+      chipCopy: "⧉ One-click copy",
+      chipResponsive: "◫ Mobile ready",
+      guides: "Wiki guides",
+      snippets: "Command snippets",
+      bilingualDocs: "Bilingual docs",
+      explore: "Explore by topic",
+      sourceNote: "Every guide is sourced from the Markdown documentation in this repository.",
+      quickEyebrow: "QUICK START",
+      copyCommand: "Copy a command",
+      copyHint: "Use the copy button, then replace placeholders before running commands.",
+      systemInfo: "System info",
+      networking: "Networking",
+      wikiHome: "← Wiki home",
+      editGithub: "Edit on GitHub ↗",
+      onPage: "On this page"
+    },
+    de: {
+      skip: "Zum Inhalt springen",
+      liveBadge: "Live auf GitHub Pages",
+      eyebrow: "ZWEISPRACHIG · KOPIERBAR · DURCHSUCHBAR",
+      heroTitle: "Befehle, die du direkt nutzen kannst.",
+      heroCopy: "Durchsuche Windows-, Linux-, WSL-, Java-, Python-, Paketmanager-, Shell-, Minecraft/Spigot-, Paper- und FiveM-Dokumentation in einem interaktiven Wiki.",
+      browse: "Wiki öffnen",
+      searchCommands: "Befehle suchen",
+      chipBilingual: "🇩🇪 🇬🇧 Zweisprachig",
+      chipSearch: "⌕ Volltextsuche",
+      chipCopy: "⧉ Mit einem Klick kopieren",
+      chipResponsive: "◫ Für Mobilgeräte",
+      guides: "Wiki-Guides",
+      snippets: "Befehlsbeispiele",
+      bilingualDocs: "Zweisprachige Docs",
+      explore: "Nach Thema durchsuchen",
+      sourceNote: "Jeder Guide wird direkt aus der Markdown-Dokumentation dieses Repositories geladen.",
+      quickEyebrow: "SCHNELLSTART",
+      copyCommand: "Befehl kopieren",
+      copyHint: "Nutze den Kopierbutton und ersetze Platzhalter, bevor du Befehle ausführst.",
+      systemInfo: "Systeminfo",
+      networking: "Netzwerk",
+      wikiHome: "← Wiki-Start",
+      editGithub: "Auf GitHub bearbeiten ↗",
+      onPage: "Auf dieser Seite"
+    },
+    all: {
+      skip: "Skip to content / Zum Inhalt",
+      liveBadge: "Live on GitHub Pages · Live auf GitHub Pages",
+      eyebrow: "BILINGUAL · ZWEISPRACHIG · SEARCHABLE",
+      heroTitle: "Commands you can actually use.",
+      heroCopy: "Practical Windows, Linux, developer and server commands with English and German explanations in one interactive wiki.",
+      browse: "Browse wiki · Wiki öffnen",
+      searchCommands: "Search · Suchen",
+      chipBilingual: "🇩🇪 🇬🇧 Deutsch + English",
+      chipSearch: "⌕ Full-text · Volltext",
+      chipCopy: "⧉ Copy · Kopieren",
+      chipResponsive: "◫ Mobile ready",
+      guides: "Wiki guides · Guides",
+      snippets: "Command snippets · Beispiele",
+      bilingualDocs: "Deutsch + English",
+      explore: "Explore by topic · Themen",
+      sourceNote: "Every guide comes from the repository Markdown files · Alle Guides stammen aus den Markdown-Dateien.",
+      quickEyebrow: "QUICK START · SCHNELLSTART",
+      copyCommand: "Copy a command · Befehl kopieren",
+      copyHint: "Use the copy button and replace placeholders before running commands · Kopieren und Platzhalter vor dem Ausführen ersetzen.",
+      systemInfo: "System info · Systeminfo",
+      networking: "Networking · Netzwerk",
+      wikiHome: "← Wiki home · Start",
+      editGithub: "Edit on GitHub · Bearbeiten ↗",
+      onPage: "On this page · Inhalt"
+    }
+  };
 
   function escapeHtml(value) {
     return String(value)
@@ -611,12 +696,41 @@
     applyTheme(next);
   }
 
-  function applyContentLanguage(lang) {
-    document.body.dataset.contentLang = lang;
-    localStorage.setItem("command-wiki-language-view", lang);
-    document.querySelectorAll(".lang-view").forEach(button => {
-      button.classList.toggle("active", button.dataset.langView === lang);
+  function applyContentLanguage(lang, announce = true) {
+    const next = ["all", "en", "de"].includes(lang) ? lang : "all";
+    currentLanguage = next;
+    document.body.dataset.contentLang = next;
+    document.documentElement.lang = next === "de" ? "de" : "en";
+    localStorage.setItem("command-wiki-language-view", next);
+
+    if (els.languageView) els.languageView.value = next;
+
+    const strings = LANGUAGE_UI[next] || LANGUAGE_UI.all;
+    document.querySelectorAll("[data-i18n]").forEach(element => {
+      const key = element.dataset.i18n;
+      if (strings[key]) element.textContent = strings[key];
     });
+
+    if (els.search) {
+      els.search.placeholder = next === "de" ? "Befehle suchen…" : next === "en" ? "Search commands…" : "Search / Suchen…";
+      els.search.setAttribute("aria-label", next === "de" ? "Command-Wiki durchsuchen" : "Search the command wiki");
+    }
+
+    if (els.sidebar) {
+      els.sidebar.setAttribute("aria-label", next === "de" ? "Wiki-Navigation" : "Wiki navigation");
+    }
+
+    document.querySelectorAll(".copy-btn").forEach(button => {
+      button.textContent = next === "de" ? "Kopieren" : next === "en" ? "Copy" : "Copy · Kopieren";
+      button.setAttribute("aria-label", button.textContent);
+    });
+
+    if (announce && els.languageStatus) {
+      els.languageStatus.textContent =
+        next === "de" ? "Deutsche Ansicht aktiviert" :
+        next === "en" ? "English view enabled" :
+        "German and English view enabled";
+    }
   }
 
   document.addEventListener("click", event => {
@@ -669,9 +783,12 @@
     if (els.search.value.trim()) renderSearchResults(els.search.value);
   });
 
-  document.getElementById("menu-button").addEventListener("click", () => {
-    document.body.classList.toggle("sidebar-open");
-    els.overlay.hidden = !document.body.classList.contains("sidebar-open");
+  els.menuButton.addEventListener("click", () => {
+    const open = !document.body.classList.contains("sidebar-open");
+    document.body.classList.toggle("sidebar-open", open);
+    els.overlay.hidden = !open;
+    els.menuButton.setAttribute("aria-expanded", String(open));
+    els.menuButton.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
   });
   els.overlay.addEventListener("click", closeSidebar);
 
@@ -687,9 +804,9 @@
   });
 
   els.themeButton.addEventListener("click", cycleTheme);
-  document.querySelectorAll(".lang-view").forEach(button => {
-    button.addEventListener("click", () => applyContentLanguage(button.dataset.langView));
-  });
+  if (els.languageView) {
+    els.languageView.addEventListener("change", () => applyContentLanguage(els.languageView.value));
+  }
 
   window.addEventListener("hashchange", loadRoute);
 
@@ -700,7 +817,7 @@
   els.heroDocCount.textContent = DOCS.length.toString();
 
   applyTheme(localStorage.getItem("command-wiki-theme") || "auto");
-  applyContentLanguage(localStorage.getItem("command-wiki-language-view") || "all");
+  applyContentLanguage(localStorage.getItem("command-wiki-language-view") || "all", false);
   loadRoute();
 
   buildSearchIndex().catch(() => {
