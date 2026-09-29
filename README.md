@@ -9,6 +9,7 @@ A bilingual **English / Deutsch** reference for useful terminal commands on Wind
 | Platform / Topic | English | Deutsch |
 |---|---|---|
 | Windows 10/11 | CMD + PowerShell commands with bilingual explanations | CMD- + PowerShell-Befehle mit zweisprachigen Erklärungen |
+| WSL | Windows Subsystem for Linux: install, distros, file and network integration | Windows-Subsystem für Linux: Installation, Distributionen, Datei- und Netzwerkintegration |
 | Common Linux | Commands that work across many distributions | Befehle, die auf vielen Distributionen funktionieren |
 | Ubuntu / Debian | APT, packages, services, system maintenance | APT, Pakete, Dienste, Systempflege |
 | Linux Mint | APT-based Mint administration and desktop helpers | APT-basierte Mint-Administration und Desktop-Helfer |
@@ -16,6 +17,7 @@ A bilingual **English / Deutsch** reference for useful terminal commands on Wind
 | Arch / Manjaro | pacman, system updates, package queries | pacman, Systemupdates und Paketabfragen |
 | openSUSE | zypper, repositories and services | zypper, Repositories und Dienste |
 | Alpine Linux | apk, OpenRC and lightweight administration | apk, OpenRC und schlanke Administration |
+| Kali Linux | Pre-installed security tools: nmap, sqlmap, john, hashcat, aircrack-ng and more | Vorinstallierte Sicherheitswerkzeuge: nmap, sqlmap, john, hashcat, aircrack-ng u. a. |
 | Java + JAR | Java runtime, compiler, classpath and JAR commands | Java-Laufzeit, Compiler, Classpath- und JAR-Befehle |
 | Python + pip | Python execution, virtual environments and pip | Python-Ausführung, virtuelle Umgebungen und pip |
 | Package managers | apt, dnf, pacman, zypper, apk, pkg, winget | apt, dnf, pacman, zypper, apk, pkg, winget |
@@ -27,6 +29,7 @@ A bilingual **English / Deutsch** reference for useful terminal commands on Wind
 ### Guides
 
 - [Windows CMD & PowerShell](docs/windows.md)
+- [WSL — Windows Subsystem for Linux](docs/wsl.md)
 - [Common Linux Commands](docs/common-linux.md)
 - [Ubuntu & Debian](docs/ubuntu-debian.md)
 - [Linux Mint](docs/linux-mint.md)
@@ -34,6 +37,7 @@ A bilingual **English / Deutsch** reference for useful terminal commands on Wind
 - [Arch Linux & Manjaro](docs/arch-manjaro.md)
 - [openSUSE](docs/opensuse.md)
 - [Alpine Linux](docs/alpine.md)
+- [Kali Linux](docs/kali.md)
 - [Java & JAR Commands](docs/java-jar.md)
 - [Python & pip Commands](docs/python-pip.md)
 - [Package Manager Commands](docs/package-managers.md)
