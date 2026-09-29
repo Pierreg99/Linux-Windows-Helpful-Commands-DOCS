@@ -4,6 +4,29 @@ A bilingual **English / Deutsch** reference for useful terminal commands on Wind
 
 > **Safety / Sicherheit:** Commands marked with ⚠️ can modify or delete data, packages, users, services, disks, firewall rules, environments, or server state. Read commands and placeholders carefully before running them, especially with Administrator/root privileges.
 
+## 🌐 Interactive Command Wiki / Interaktives Command-Wiki
+
+This repository now includes a **responsive interactive website** that reads the Markdown guides directly and turns them into a searchable command wiki.
+
+Dieses Repository enthält jetzt eine **responsive interaktive Website**, die die Markdown-Guides direkt einliest und daraus ein durchsuchbares Command-Wiki erstellt.
+
+**GitHub Pages:** https://pierreg99.github.io/Linux-Windows-Helpful-Commands-DOCS/
+
+Website features / Website-Funktionen:
+
+- 🔎 Full-text search across all guides / Volltextsuche über alle Guides
+- 📋 Copy button on every code block / Kopierbutton an jedem Codeblock
+- 🖱️ Click inline commands to copy them / Inline-Befehle zum Kopieren anklicken
+- 🌗 Light, dark and automatic theme / Helles, dunkles und automatisches Theme
+- 🇩🇪 🇬🇧 DE/EN table-column filtering / DE-/EN-Filter für Tabellenspalten
+- 📱 Responsive desktop and mobile UI / Responsive Desktop- und Mobilansicht
+- 🧭 Per-page table of contents / Inhaltsverzeichnis pro Wiki-Seite
+- ✏️ Direct “Edit on GitHub” links / Direkte „Edit on GitHub“-Links
+
+See [WIKI.md](WIKI.md) for the repository wiki index and contribution workflow.
+
+> GitHub Pages must be configured with **Settings → Pages → Source: GitHub Actions** for the included deployment workflow to publish the site.
+
 ## Documentation / Dokumentation
 
 | Platform / Topic | English | Deutsch |

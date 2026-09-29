@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Interactive bilingual Linux, Windows, developer and game-server command wiki. Search documentation and copy commands with one click.">
+  <meta name="theme-color" content="#0b1020">
+  <title>Command Wiki — Linux & Windows Helpful Commands</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body data-content-lang="all">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="topbar">
+    <button class="icon-button mobile-only" id="menu-button" type="button" aria-label="Open navigation" title="Open navigation">☰</button>
+    <button class="brand" id="home-button" type="button" aria-label="Go to wiki home">
+      <span class="brand-mark" aria-hidden="true">&gt;_</span>
+      <span class="brand-copy">
+        <strong>Command Wiki</strong>
+        <small>Linux · Windows · Dev · Servers</small>
+      </span>
+    </button>
+
+    <div class="top-actions">
+      <div class="segmented compact" role="group" aria-label="Documentation language columns">
+        <button type="button" class="lang-view active" data-lang-view="all">DE+EN</button>
+        <button type="button" class="lang-view" data-lang-view="en">EN</button>
+        <button type="button" class="lang-view" data-lang-view="de">DE</button>
+      </div>
+      <button class="icon-button" id="theme-button" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+      <a class="github-button" href="https://github.com/Pierreg99/Linux-Windows-Helpful-Commands-DOCS" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Wiki navigation">
+      <div class="search-wrap">
+        <label class="sr-only" for="search-input">Search the command wiki</label>
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="search-input" type="search" autocomplete="off" spellcheck="false" placeholder="Search commands…">
+        <kbd>/</kbd>
+      </div>
+      <div id="search-results" class="search-results" hidden></div>
+      <nav id="wiki-nav"></nav>
+      <div class="sidebar-footer">
+        <span id="doc-count">0 guides</span>
+        <span>•</span>
+        <span id="command-count">Indexing…</span>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebar-overlay" hidden></div>
+
+    <main id="main-content" tabindex="-1">
+      <section id="home-view" class="home-view">
+        <div class="hero">
+          <div class="eyebrow">BILINGUAL · COPYABLE · SEARCHABLE</div>
+          <h1>Commands you can actually use.</h1>
+          <p class="hero-copy">
+            Browse Windows, Linux, WSL, Java, Python, package managers, shell scripting,
+            Minecraft/Spigot, Paper and FiveM documentation in one interactive wiki.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-button" id="browse-button" type="button">Browse wiki</button>
+            <button class="secondary-button" id="focus-search-button" type="button">Search commands</button>
+          </div>
+          <div class="hero-stats">
+            <div><strong id="hero-doc-count">0</strong><span>Wiki guides</span></div>
+            <div><strong id="hero-command-count">—</strong><span>Command snippets</span></div>
+            <div><strong>DE + EN</strong><span>Bilingual docs</span></div>
+          </div>
+        </div>
+
+        <section class="home-section" aria-labelledby="topics-heading">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">WIKI</span>
+              <h2 id="topics-heading">Explore by topic</h2>
+            </div>
+            <p>Every guide is sourced from the Markdown documentation in this repository.</p>
+          </div>
+          <div id="topic-cards" class="topic-grid"></div>
+        </section>
+
+        <section class="home-section quick-start" aria-labelledby="quick-heading">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">QUICK START</span>
+              <h2 id="quick-heading">Copy a command</h2>
+            </div>
+            <p>Click the copy button. Replace placeholders such as <code>&lt;package&gt;</code> before running commands.</p>
+          </div>
+          <div class="quick-grid">
+            <article class="quick-card">
+              <div class="quick-card-head"><span>Linux</span><small>System info</small></div>
+              <div class="code-shell"><pre><code>uname -a</code></pre><button class="copy-btn" type="button">Copy</button></div>
+            </article>
+            <article class="quick-card">
+              <div class="quick-card-head"><span>PowerShell</span><small>Networking</small></div>
+              <div class="code-shell"><pre><code>Get-NetIPConfiguration</code></pre><button class="copy-btn" type="button">Copy</button></div>
+            </article>
+            <article class="quick-card">
+              <div class="quick-card-head"><span>Python</span><small>pip</small></div>
+              <div class="code-shell"><pre><code>python -m pip --version</code></pre><button class="copy-btn" type="button">Copy</button></div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section id="article-view" class="article-view" hidden>
+        <div class="article-grid">
+          <article class="wiki-article">
+            <div class="article-toolbar">
+              <button class="back-home" id="article-home-button" type="button">← Wiki home</button>
+              <a id="edit-link" class="edit-link" target="_blank" rel="noopener noreferrer">Edit on GitHub ↗</a>
+            </div>
+            <div id="article-content" class="markdown-body" aria-live="polite"></div>
+          </article>
+          <aside class="toc-panel" aria-label="On this page">
+            <div class="toc-title">On this page</div>
+            <nav id="page-toc"></nav>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="./assets/app.js" defer></script>
+</body>
+</html>
