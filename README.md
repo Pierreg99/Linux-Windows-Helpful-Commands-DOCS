@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="./assets/readme-banner.svg" alt="Linux-Windows-Helpful-Commands-DOCS" width="100%">
+
 # Linux & Windows Helpful Commands DOCS
 
 <p><strong>Zweisprachige Referenz nützlicher Terminal-Befehle für Windows, Linux, Runtimes, Gameserver und Paketmanager.</strong></p>
@@ -15,10 +17,38 @@
 <p><a href="#schnellstart">Schnellstart</a> · <a href="#projektstruktur">Projektstruktur</a> · <a href="#english-summary">English</a></p>
 </div>
 
+<table>
+<tr>
+<td width="58%" valign="top">
+
+### Bestand
+
+Keine Beschreibung im Repo-Metadatum. Dieses README erfindet deshalb keine Funktionen, Releases oder Laufzeiten.
+
+Der Default-Branch `main` ist die Fläche, die zählt. Was nicht in diesem Baum liegt, ist kein Feature dieses Repos.
+
+</td>
+<td width="42%" valign="top">
+
+### Fakten
+
+| Feld | Wert |
+| --- | --- |
+| Owner | Pierreg99 |
+| Branch | `main` |
+| Sichtbarkeit | öffentlich |
+| Sprache | CSS |
+| Archiv | nein |
+
+</td>
+</tr>
+</table>
+
 ---
 
 ## Inhaltsverzeichnis
 
+- [Bestand und Fakten](#bestand)
 - [Überblick](#überblick)
 - [Features](#features)
 - [Schnellstart](#schnellstart)
@@ -34,7 +64,7 @@ Zweisprachige Referenz nützlicher Terminal-Befehle für Windows, Linux, Runtime
 | Merkmal | Wert |
 | --- | --- |
 | Sprachen | CSS (48%), JavaScript (40%), HTML (13%) |
-| Dateien im Repository | 24 |
+| Dateien im Repository | 25 |
 | Einstiegspunkte | `index.html` |
 | CI-Workflows | 1 |
 
@@ -60,9 +90,10 @@ Das Projekt benötigt keinen Build-Schritt: `index.html` direkt im Browser öffn
 Linux-Windows-Helpful-Commands-DOCS/
 ├── .github/  (1 Datei)
 │   └── workflows/
-├── assets/  (3 Dateien)
+├── assets/  (4 Dateien)
 │   ├── app.js
 │   ├── icons.js
+│   ├── readme-banner.svg
 │   └── styles.css
 ├── docs/  (17 Dateien)
 │   ├── alpine.md
