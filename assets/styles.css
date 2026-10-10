@@ -1287,3 +1287,18 @@ main { margin-left: 296px; padding-top:88px; }
 
 .warning-symbol { display:inline-flex; vertical-align:middle; color:var(--accent-strong); margin-inline:3px; }
 .warning-symbol .ui-icon { width:17px; height:17px; }
+
+/* Keep the project credit visible on the home page and every guide. */
+.project-intro {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px 32px 24px 8px;
+  overflow-wrap: anywhere;
+}
+.project-intro h2 { margin: 0 0 8px; font-size: 20px; line-height: 1.4; }
+.project-intro p { margin: 0; max-width: 850px; color: var(--muted); font-size: 14px; }
+.project-intro a { color: var(--accent-strong); text-underline-offset: 3px; }
+@media (max-width: 900px) {
+  .project-intro { padding: 16px 20px 20px; }
+  .project-intro h2 { font-size: 18px; }
+}

@@ -146,9 +146,21 @@
   let toastTimer = null;
   let currentLanguage = "all";
   let currentCategory = "all";
+  let routeVersion = 0;
+
+  // Browsing must still work when storage is blocked or unavailable.
+  function readPreference(key) {
+    try { return localStorage.getItem(key); } catch { return null; }
+  }
+
+  function savePreference(key, value) {
+    try { localStorage.setItem(key, value); } catch { /* Use this session's choice. */ }
+  }
 
   const LANGUAGE_UI = {
     en: {
+      projectCredit: "This project is made by",
+      projectDescription: "A practical command reference for Windows, Linux, developer tools, shell scripts and game servers, with explanations in English and German.",
       filterAll: "All guides",
       filterSystems: "Operating systems",
       filterDev: "Development",
@@ -179,6 +191,8 @@
       onPage: "On this page"
     },
     de: {
+      projectCredit: "Dieses Projekt wurde erstellt von",
+      projectDescription: "Eine praktische Befehlsreferenz für Windows, Linux, Entwicklungswerkzeuge, Shell-Skripte und Gameserver mit Erklärungen auf Deutsch und Englisch.",
       filterAll: "Alle Guides",
       filterSystems: "Betriebssysteme",
       filterDev: "Entwicklung",
@@ -209,6 +223,8 @@
       onPage: "Auf dieser Seite"
     },
     all: {
+      projectCredit: "This project is made by",
+      projectDescription: "A bilingual command reference for Windows, Linux, developer tools and game servers · Eine zweisprachige Befehlsreferenz für Windows, Linux, Entwicklungswerkzeuge und Gameserver.",
       filterAll: "All · Alle",
       filterSystems: "Systems · Systeme",
       filterDev: "Development · Entwicklung",
@@ -297,7 +313,8 @@
     let value = line.trim();
     if (value.startsWith("|")) value = value.slice(1);
     if (value.endsWith("|")) value = value.slice(0, -1);
-    return value.split("|").map(cell => cell.trim());
+    // An escaped pipe belongs to a cell, including inside inline commands.
+    return value.split(/(?<!\\)\|/).map(cell => cell.trim().replace(/\\\|/g, "|"));
   }
 
   function isTableDelimiter(line) {
@@ -462,7 +479,7 @@
 
   function commandCount(markdown) {
     const fenced = [...String(markdown).matchAll(/```[^\n]*\n[\s\S]*?```/g)].length;
-    const inline = [...String(markdown).matchAll(/`[^`\n]+`/g)].length;
+    const inline = [...String(markdown).replace(/```[^\n]*\n[\s\S]*?```/g, "").matchAll(/`[^`\n]+`/g)].length;
     return fenced + inline;
   }
 
@@ -540,6 +557,7 @@
   }
 
   function renderHome() {
+    routeVersion += 1;
     els.article.hidden = true;
     els.home.hidden = false;
     setActiveNav("");
@@ -569,6 +587,7 @@
   }
 
   async function loadDocument(doc) {
+    const version = ++routeVersion;
     els.home.hidden = true;
     els.article.hidden = false;
     setActiveNav(doc.slug);
@@ -580,10 +599,12 @@
 
     try {
       const markdown = await getDoc(doc);
+      if (version !== routeVersion) return;
       els.articleContent.innerHTML = renderMarkdown(markdown);
       buildToc();
       refreshCopyButtons();
     } catch (error) {
+      if (version !== routeVersion) return;
       els.articleContent.innerHTML = `
         <div class="article-error">
           <h2>Could not load this wiki page</h2>
@@ -595,7 +616,9 @@
   }
 
   function loadRoute() {
-    const slug = decodeURIComponent(location.hash.replace(/^#/, ""));
+    let slug;
+    try { slug = decodeURIComponent(location.hash.replace(/^#/, "")); }
+    catch { renderHome(); return; }
     if (!slug || slug === "home") {
       renderHome();
       return;
@@ -627,8 +650,9 @@
         area.style.opacity = "0";
         document.body.appendChild(area);
         area.select();
-        document.execCommand("copy");
+        const copied = document.execCommand("copy");
         area.remove();
+        if (!copied) throw new Error("Clipboard unavailable");
       }
 
       if (button && button.classList.contains("copy-btn")) {
@@ -699,12 +723,13 @@
     const total = results.reduce((sum, result) => sum + (result.status === "fulfilled" ? result.value : 0), 0);
     els.commandCount.textContent = `${total} copyable snippets`;
     els.heroCommandCount.textContent = total.toLocaleString();
+    renderSearchResults(els.search.value);
   }
 
   function applyTheme(theme) {
     if (!["auto", "light", "dark"].includes(theme)) theme = "auto";
     document.documentElement.dataset.theme = theme;
-    localStorage.setItem("command-wiki-theme", theme);
+    savePreference("command-wiki-theme", theme);
     const labels = { auto: "Auto theme", light: "Light theme", dark: "Dark theme" };
     els.themeButton.innerHTML = icon(theme);
     els.themeButton.title = `${labels[theme]} — click to change`;
@@ -740,7 +765,7 @@
     currentLanguage = next;
     document.body.dataset.contentLang = next;
     document.documentElement.lang = next === "de" ? "de" : "en";
-    localStorage.setItem("command-wiki-language-view", next);
+    savePreference("command-wiki-language-view", next);
 
     if (els.languageView) els.languageView.value = next;
 
@@ -860,8 +885,8 @@
   els.docCount.textContent = `${DOCS.length} guides`;
   els.heroDocCount.textContent = DOCS.length.toString();
 
-  applyTheme(localStorage.getItem("command-wiki-theme") || "auto");
-  applyContentLanguage(localStorage.getItem("command-wiki-language-view") || "all", false);
+  applyTheme(readPreference("command-wiki-theme") || "auto");
+  applyContentLanguage(readPreference("command-wiki-language-view") || "all", false);
   loadRoute();
 
   buildSearchIndex().catch(() => {

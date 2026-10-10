@@ -1,117 +1,25 @@
-<div align="center">
+# Linux & Windows Helpful Commands
 
-<img src="./assets/readme-banner.svg" alt="Linux-Windows-Helpful-Commands-DOCS" width="100%">
+**Made by [Pierreg99](https://github.com/Pierreg99).** A practical command reference for Windows, Linux, developer tools, shell scripts and game servers, with explanations in **English and Deutsch**.
 
-# Linux-Windows-Helpful-Commands-DOCS
+**Ein Projekt von [Pierreg99](https://github.com/Pierreg99).** Praktische Befehle für Windows, Linux, Entwicklungswerkzeuge, Shell-Skripte und Gameserver mit Erklärungen auf **Deutsch und Englisch**.
 
-Eigenes Repository. GitHub hat noch keine Beschreibung gesetzt.
+**[Open the live Command Wiki · Interaktives Command-Wiki öffnen](https://pierreg99.github.io/Linux-Windows-Helpful-Commands-DOCS/)**
 
-[![branch](https://img.shields.io/badge/branch-main-7EB8C9?style=flat-square)](https://github.com/Pierreg99/Linux-Windows-Helpful-Commands-DOCS)
-[![sichtbarkeit](https://img.shields.io/badge/sichtbarkeit-öffentlich-141414?style=flat-square&labelColor=0A0A0A)](https://github.com/Pierreg99/Linux-Windows-Helpful-Commands-DOCS)
-[![sprache](https://img.shields.io/badge/sprache-CSS-2A2A28?style=flat-square&labelColor=0A0A0A)](https://github.com/Pierreg99/Linux-Windows-Helpful-Commands-DOCS)
+## Interactive website · Interaktive Website
 
-</div>
+The website loads the Markdown guides directly from `docs/`. No build tools, dependencies or account are required to browse it.
 
-<table>
-<tr>
-<td width="58%" valign="top">
+Die Website lädt die Markdown-Guides direkt aus `docs/`. Zum Lesen sind keine Build-Werkzeuge, Abhängigkeiten oder Benutzerkonten nötig.
 
-### Bestand
+- Full-text search across all 17 guides · Volltextsuche über alle 17 Guides
+- Copy buttons for code blocks and clickable inline commands · Kopierbuttons für Codeblöcke und anklickbare Inline-Befehle
+- English, Deutsch and DE + EN views · Englische, deutsche und zweisprachige Ansichten
+- Light, dark and automatic themes · Helles, dunkles und automatisches Theme
+- Mobile navigation and keyboard shortcuts (`/` for search, `Escape` to close navigation) · Mobilnavigation und Tastenkürzel (`/` für die Suche, `Escape` zum Schließen)
+- Per-guide table of contents and GitHub edit links · Inhaltsverzeichnis und GitHub-Bearbeitungslinks pro Guide
 
-Keine Beschreibung im Repo-Metadatum. Dieses README erfindet deshalb keine Funktionen, Releases oder Laufzeiten.
-
-Der Default-Branch `main` ist die Fläche, die zählt. Was nicht in diesem Baum liegt, ist kein Feature dieses Repos.
-
-</td>
-<td width="42%" valign="top">
-
-### Fakten
-
-| Feld | Wert |
-| --- | --- |
-| Owner | Pierreg99 |
-| Branch | `main` |
-| Sichtbarkeit | öffentlich |
-| Sprache | CSS |
-| Archiv | nein |
-
-</td>
-</tr>
-</table>
-
-## Lesen
-
-1. Default-Branch öffnen.
-2. Nur Dateien in diesem Baum als Beleg nehmen.
-3. Issues und Diskussionen nur nutzen, wenn sie im Repo eingeschaltet sind.
-
-## Grenze
-
-Keine Qualitätszahl, kein Paketstand und keine Runtime, die nicht als Datei in diesem Repo steht.
-
-<p align="center"><sub>Fläche nach Cryo Core Lite v1.5 · Tokens #0A0A0A / #141414 / #7EB8C9</sub></p>
-
-
-<details>
-<summary>Bisheriger README-Text</summary>
-
-# Linux & Windows Helpful Commands DOCS
-
-A bilingual **English / Deutsch** reference for useful terminal commands on Windows, popular Linux distributions, programming runtimes, game servers, package managers, and shell scripts.
-
-### 🌐 [Open the live Command Wiki / Interaktives Command-Wiki öffnen](https://pierreg99.github.io/Linux-Windows-Helpful-Commands-DOCS/)
-
-**Live website:** [pierreg99.github.io/Linux-Windows-Helpful-Commands-DOCS](https://pierreg99.github.io/Linux-Windows-Helpful-Commands-DOCS/) · optimized for desktop, mobile, keyboard navigation, screen readers, and accessible **Deutsch / English / DE+EN** views.
-
-> **Safety / Sicherheit:** Commands marked with ⚠️ can modify or delete data, packages, users, services, disks, firewall rules, environments, or server state. Read commands and placeholders carefully before running them, especially with Administrator/root privileges.
-
-## 🌐 Interactive Command Wiki / Interaktives Command-Wiki
-
-This repository now includes a **responsive interactive website** that reads the Markdown guides directly and turns them into a searchable command wiki.
-
-Dieses Repository enthält jetzt eine **responsive interaktive Website**, die die Markdown-Guides direkt einliest und daraus ein durchsuchbares Command-Wiki erstellt.
-
-**GitHub Pages:** https://pierreg99.github.io/Linux-Windows-Helpful-Commands-DOCS/
-
-Website features / Website-Funktionen:
-
-- 🔎 Full-text search across all guides / Volltextsuche über alle Guides
-- 📋 Copy button on every code block / Kopierbutton an jedem Codeblock
-- 🖱️ Click inline commands to copy them / Inline-Befehle zum Kopieren anklicken
-- 🌗 Light, dark and automatic theme / Helles, dunkles und automatisches Theme
-- 🇩🇪 🇬🇧 Accessible **Deutsch / English / DE+EN** selector on desktop and mobile / Barrierearme Sprachauswahl auf Desktop und Mobilgeräten
-- ♿ Keyboard focus, screen-reader status messages and reduced-motion support / Tastaturfokus, Screenreader-Statusmeldungen und Reduced-Motion-Unterstützung
-- 📱 Responsive desktop and mobile UI / Responsive Desktop- und Mobilansicht
-- 🧭 Per-page table of contents / Inhaltsverzeichnis pro Wiki-Seite
-- ✏️ Direct “Edit on GitHub” links / Direkte „Edit on GitHub“-Links
-
-See [WIKI.md](WIKI.md) for the repository wiki index and contribution workflow.
-
-> GitHub Pages must be configured with **Settings → Pages → Source: GitHub Actions** for the included deployment workflow to publish the site.
-
-## Documentation / Dokumentation
-
-| Platform / Topic | English | Deutsch |
-|---|---|---|
-| Windows 10/11 | CMD + PowerShell commands with bilingual explanations | CMD- + PowerShell-Befehle mit zweisprachigen Erklärungen |
-| WSL | Windows Subsystem for Linux: install, distros, file and network integration | Windows-Subsystem für Linux: Installation, Distributionen, Datei- und Netzwerkintegration |
-| Common Linux | Commands that work across many distributions | Befehle, die auf vielen Distributionen funktionieren |
-| Ubuntu / Debian | APT, packages, services, system maintenance | APT, Pakete, Dienste, Systempflege |
-| Linux Mint | APT-based Mint administration and desktop helpers | APT-basierte Mint-Administration und Desktop-Helfer |
-| Fedora / RHEL | DNF/RPM, SELinux, services and firewall | DNF/RPM, SELinux, Dienste und Firewall |
-| Arch / Manjaro | pacman, system updates, package queries | pacman, Systemupdates und Paketabfragen |
-| openSUSE | zypper, repositories and services | zypper, Repositories und Dienste |
-| Alpine Linux | apk, OpenRC and lightweight administration | apk, OpenRC und schlanke Administration |
-| Kali Linux | Pre-installed security tools: nmap, sqlmap, john, hashcat, aircrack-ng and more | Vorinstallierte Sicherheitswerkzeuge: nmap, sqlmap, john, hashcat, aircrack-ng u. a. |
-| Java + JAR | Java runtime, compiler, classpath and JAR commands | Java-Laufzeit, Compiler, Classpath- und JAR-Befehle |
-| Python + pip | Python execution, virtual environments and pip | Python-Ausführung, virtuelle Umgebungen und pip |
-| Package managers | apt, dnf, pacman, zypper, apk, pkg, winget | apt, dnf, pacman, zypper, apk, pkg, winget |
-| SH + CMD scripts | Bash/sh scripts and Windows .cmd/.bat basics | Bash-/sh-Skripte und Windows-.cmd/.bat-Grundlagen |
-| Minecraft + Spigot | Vanilla/Spigot server, BuildTools, plugin examples | Vanilla-/Spigot-Server, BuildTools, Plugin-Beispiele |
-| Paper / PaperSpigot | Modern Paper server, plugins, Gradle/Maven examples | Moderner Paper-Server, Plugins, Gradle-/Maven-Beispiele |
-| FiveM | FXServer, txAdmin, resources, fxmanifest.lua, server.cfg | FXServer, txAdmin, Ressourcen, fxmanifest.lua, server.cfg |
-
-### Guides
+## Guides · Dokumentation
 
 - [Windows CMD & PowerShell](docs/windows.md)
 - [WSL — Windows Subsystem for Linux](docs/wsl.md)
@@ -131,54 +39,36 @@ See [WIKI.md](WIKI.md) for the repository wiki index and contribution workflow.
 - [Paper / PaperSpigot](docs/paper-paperspigot.md)
 - [FiveM](docs/fivem.md)
 
-## Conventions / Konventionen
+## Running locally · Lokal starten
 
-- Replace placeholders like `<file>`, `<package>`, `<user>`, `<service>`, `<class>`, `<version>` and `<path>` before running a command.
-- Ersetze Platzhalter wie `<datei>`, `<paket>`, `<benutzer>`, `<dienst>`, `<klasse>`, `<version>` und `<pfad>` vor dem Ausführen.
-- Linux examples assume a Bash-compatible shell unless noted otherwise.
-- Linux-Beispiele gehen, sofern nicht anders angegeben, von einer Bash-kompatiblen Shell aus.
-- `sudo` is used when elevated privileges are normally required.
-- `sudo` wird verwendet, wenn normalerweise erhöhte Rechte nötig sind.
-- Never paste real passwords, API tokens, server license keys, or other secrets into public repositories.
-- Speichere niemals echte Passwörter, API-Tokens, Server-Lizenzschlüssel oder andere Geheimnisse in öffentlichen Repositories.
+Clone the repository and serve it over HTTP so the browser can fetch the guides:
 
-## Quick examples / Schnellbeispiele
+Repository klonen und über HTTP bereitstellen, damit der Browser die Guides laden kann:
 
 ```bash
-# Linux
-pwd
-ls -lah
-ip addr
-
-# Python
-python3 --version
-python3 -m pip --version
-
-# Java
-java -version
-javac -version
-
-# Minecraft/Paper-style server start
-java -Xms2G -Xmx4G -jar server.jar --nogui
-
-# Shell script
-bash script.sh
+git clone https://github.com/Pierreg99/Linux-Windows-Helpful-Commands-DOCS.git
+cd Linux-Windows-Helpful-Commands-DOCS
+python3 -m http.server 8000
 ```
 
-```powershell
-# Windows PowerShell
-Get-NetIPConfiguration
-Get-Process
+On Windows, use `py -m http.server 8000` if needed. Open **http://localhost:8000**. Opening `index.html` directly with a `file://` URL can prevent guide loading.
 
-# Python
-python --version
-python -m pip --version
+Unter Windows bei Bedarf `py -m http.server 8000` verwenden. **http://localhost:8000** öffnen. Beim direkten Öffnen von `index.html` über `file://` kann das Laden der Guides blockiert werden.
 
-# Java
-java -version
-javac -version
-```
+## Deployment · Veröffentlichung
 
-Contributions that add accurate commands, distro notes, developer tools, game-server examples, or clearer bilingual explanations are welcome.
+The workflow in [`.github/workflows/pages.yml`](.github/workflows/pages.yml) publishes `index.html`, `assets/` and `docs/` to GitHub Pages on every push to `main`. In **Settings → Pages**, set **Source** to **GitHub Actions**. You can also run the workflow manually from the Actions tab.
 
-</details>
+Der Workflow veröffentlicht `index.html`, `assets/` und `docs/` bei jedem Push nach `main` auf GitHub Pages. Unter **Settings → Pages** die **Source** auf **GitHub Actions** setzen. Der Workflow kann auch im Actions-Tab manuell gestartet werden.
+
+## Using commands · Befehle verwenden
+
+Commands marked with **⚠️** can modify or delete data or system settings. Read each command before running it, particularly with Administrator/root privileges. Replace placeholders such as `<file>`, `<package>` and `<path>` first. Linux examples assume a Bash-compatible shell unless stated otherwise.
+
+Mit **⚠️** markierte Befehle können Daten oder Systemeinstellungen ändern oder löschen. Jeden Befehl vor dem Ausführen lesen, besonders mit Administrator-/root-Rechten. Platzhalter wie `<file>`, `<package>` und `<path>` vorher ersetzen. Linux-Beispiele setzen eine Bash-kompatible Shell voraus, sofern nicht anders angegeben.
+
+## Contributing · Mitwirken
+
+Corrections, new commands and clearer bilingual explanations are welcome. Edit the relevant guide in `docs/`; for a new guide, add its metadata to `DOCS` in `assets/app.js` and link it here and in [WIKI.md](WIKI.md). Preview the website locally before submitting a pull request. Keep passwords, API tokens and server license keys out of examples.
+
+Korrekturen, neue Befehle und verständlichere zweisprachige Erklärungen sind willkommen. Den passenden Guide in `docs/` bearbeiten; bei neuen Guides die Metadaten in `DOCS` in `assets/app.js` ergänzen und hier sowie in [WIKI.md](WIKI.md) verlinken. Die Website vor einem Pull Request lokal prüfen. Keine Passwörter, API-Tokens oder Server-Lizenzschlüssel in Beispiele aufnehmen.
